@@ -14,15 +14,20 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'SirVer/ultisnips'
 " 常用文本片段集合插件
 Plugin 'honza/vim-snippets'
-
 " Trigger configuration.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/snippets/UltiSnips', $HOME.'/.vim/bundle/vim-snippets/UltiSnips']
 
-
+" tex 插件 
 Plugin 'lervag/vimtex'
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 " 语法检查插件
 "
@@ -64,7 +69,7 @@ Plugin 'altercation/vim-colors-solarized'
 " Git 命令集成插件 
 Plugin 'tpope/vim-fugitive'
 
-" 状态和tab导航 
+" 状态和tab栏增强插件
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline#extensions#tabline#enabled = 1
@@ -128,8 +133,6 @@ nnoremap <F2>:set nonumber!<CR>:set foldcolumn=0<CR>
 set cc=80
 let g:indent_guides_guide_size=1
 
-
-"autocmd VimEnter * iunmap <TAB>
 
 nmap <F3> i<C-R>=strftime("%Y.%m.%d")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y.%m.%d")<CR>
