@@ -1,27 +1,5 @@
 
 global !p
-texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C',
-'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS',
-'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
-
-texIgnoreMathZones = ['texMathText']
-
-texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
-texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
-
-ignore = texIgnoreMathZoneIds[0]
-
-def math():
-    synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
-    try:
-        first = next(
-            i for i in reversed(synstackids)
-            if i in texIgnoreMathZoneIds or i in texMathZoneIds
-        )
-        return first != ignore
-    except StopIteration:
-        return False
-
 def create_table(snip):
 	rows = snip.buffer[snip.line].split('x')[0]
 	cols = snip.buffer[snip.line].split('x')[1]
@@ -62,14 +40,6 @@ def add_row(snip):
 endglobal
 
 
-######################
-#  General Snippets  #
-######################
-
-snippet ( "auto surrounding" wA
-( ${1:${VISUAL}} )$0
-endsnippet
-
 ##############################################
 #  Snippets for Math Environment Generating  #
 ##############################################
@@ -82,24 +52,22 @@ $$
 $$
 endsnippet
 
-snippet pm "matrix in ()" 
+snippet pm "matrix in ()" i
 \begin{pmatrix}
-	${1:${VISUAL}} \\\\
+	${1:${VISUAL}} \\\\ $2
 \end{pmatrix} $0
 endsnippet
 
-snippet vm "matrix in | |" 
+snippet vm "matrix in | |" i
 \begin{vmatrix}
 	${1:${VISUAL}} \\\\ $2
-\end{vmatrix}
-$0
+\end{vmatrix} $0
 endsnippet
 
-snippet bm "matrix in [ ]" 
+snippet bm "matrix in [ ]" i
 \begin{bmatrix}
 	${1:${VISUAL}} \\\\ $2
-\end{bmatrix}
-$0
+\end{bmatrix} $0
 endsnippet
 
 pre_expand "import os; os.system('fcitx-remote -c')"
@@ -109,11 +77,9 @@ endsnippet
 
 pre_expand "import os; os.system('fcitx-remote -c')"
 snippet lm "interline formula" A
-
 $$
 ${1:${VISUAL}}
-$$
-$0
+$$ $0
 endsnippet
 
 snippet eqnn "Equation without a number" b
@@ -171,117 +137,107 @@ endsnippet
 #  Math in Math Environment  #
 ##############################
 
-context "math()"
 snippet \| "norm" iA
 \| ${1:${VISUAL}} \|$0
 endsnippet
 
-context "math()"
 snippet dA "delta A" iA
 \delta A
 endsnippet
 
-context "math()"
 snippet db "delta b" iA 
 \delta b
 endsnippet
 
-context "math()"
 snippet dx "delta x" A 
 \delta x
 endsnippet
 
-context "math()"
 snippet s "sum "
 \sum_{$1}^{$2} $0
 endsnippet
 
-context "math()"
 snippet for "for loop" 
 \text{for } $1 \text{ to } $2 \\\\
 \quad $3 \\\\
 \text{end for}$0
 endsnippet
 
-context "math()"
 snippet txt "text env" 
 \text{ $1 } $0
 endsnippet
 
-context "math()"
 snippet '([A-Za-z])I' "auto subscript" wrA
 `!p snip.rv = match.group(1)`^{-1}
 endsnippet
 
-context "math()"
 snippet '([A-Za-z])T' "auto subscript" wrA
 `!p snip.rv = match.group(1)`^T
 endsnippet
 
 priority 10
-context "math()"
 snippet "bar" "bar" riA
 \overline{$1}$0
 endsnippet
 
-context "math()"
 priority 100
 snippet "([a-zA-Z])bar" "bar" riA
 \overline{`!p snip.rv=match.group(1)`}
 endsnippet
 
 priority 10
-context "math()"
 snippet "hat" "hat" riA
 \hat{$1}$0
 endsnippet
 
 priority 100
-context "math()"
 snippet "([a-zA-Z])hat" "hat" riA
 \hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
-context "math()"
 snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
 \vec{`!p snip.rv=match.group(1)`}
 endsnippet
 
-context "math()"
 snippet l{ "surrounding" 
 \left\{ $1 \right\} $0
 endsnippet
 
-context "math()"
 snippet l[ "surrounding" 
 \left[ $1 \right] $0
 endsnippet
 
-context "math()"
 snippet l( "surrounding" wA
 \left( $1 \right) $0
 endsnippet
 
-context "math()"
 snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
 \\frac{`!p snip.rv = match.group(1)`}{$1}$0
 endsnippet
 
-context "math()"
 snippet // "Fraction" iA
 \\frac{ $1 }{ $2 }$0
 endsnippet
 
-context "math()"
 snippet '([A-Za-z])(\d)' "auto subscript" wrA
 `!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
 endsnippet
 
-context "math()"
 snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
 `!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
 endsnippet
 
+snippet '_([a-zA-Z0-9])' "auto subscript" wrA
+_`!p snip.rv = match.group(1)`
+endsnippet
+
+snippet '_([a-zA-Z0-9,]{2})' "auto subscript2" wrA
+_{`!p snip.rv = match.group(1)`}
+endsnippet
+
+snippet '_([a-zA-Z0-9,]{3})' "auto subscript2" wrA
+_{`!p snip.rv = match.group(1)`$1}$0
+endsnippet
 
 
 

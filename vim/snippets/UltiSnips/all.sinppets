@@ -4,3 +4,7 @@ Yours sincerely,
 
 Huayi Wei
 endsnippet
+
+snippet ( "surrounding" iwA
+( $1 ) $0
+endsnippet
