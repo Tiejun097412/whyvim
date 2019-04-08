@@ -20,3 +20,4 @@ endfunction
 set timeoutlen=150
 autocmd InsertLeave * call Fcitx2Leave()
 autocmd InsertEnter * call Fcitx2Enter()
+
