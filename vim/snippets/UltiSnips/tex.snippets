@@ -26,6 +26,10 @@ endglobal
 #  Generate the math environment  #
 ###################################
 
+snippet $ "inline math" iA
+$ $1 $ $0
+endsnippet
+
 snippet pm "matrix in ()" 
 \begin{pmatrix}
 	${1:${VISUAL}} \\\\
@@ -48,7 +52,7 @@ endsnippet
 snippet dm "Math" wA
 \[
 $1
-.\] $0
+\] $0
 endsnippet
 
 ##############################
