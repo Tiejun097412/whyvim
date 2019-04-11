@@ -111,6 +111,7 @@ set linespace=6
 " Add 'k' to the list to enable dictionary completion source
 set complete+=k
 set complete+=t
+set complete-=i
 "autocmd FileType * execute 'setlocal dict+=~/.vim/words/'.&filetype.'.md'
 set dict+=~/.vim/words/cmake.md
 set dict+=~/.vim/words/why.md
