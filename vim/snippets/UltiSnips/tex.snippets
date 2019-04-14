@@ -22,12 +22,30 @@ def math():
         return False
 endglobal
 
+######################################
+#  Generate the general environment  #
+######################################
+
+snippet "b(egin)?" "begin{} / end{}" br
+\begin{${1:something}}
+	${0:${VISUAL}}
+\end{$1}
+endsnippet
+
 ###################################
 #  Generate the math environment  #
 ###################################
 
-snippet $ "inline math" iA
-$ $1 $ $0
+pre_expand "import os; os.system('fcitx-remote -c')"
+snippet im "inline math formula" iA 
+$ ${1:${VISUAL}} $ $0
+endsnippet
+
+pre_expand "import os; os.system('fcitx-remote -c')"
+snippet lm "interline formula" iA 
+$$
+${1:${VISUAL}}
+$$ $0
 endsnippet
 
 snippet pm "matrix in ()" 
@@ -94,22 +112,22 @@ snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
 endsnippet
 
 context "math()"
-snippet l{ "surrounding" 
+snippet l{ "surrounding" i
 \left\{ $1 \right\} $0
 endsnippet
 
 context "math()"
-snippet l[ "surrounding" 
+snippet l[ "surrounding" i 
 \left[ $1 \right] $0
 endsnippet
 
 context "math()"
-snippet l( "surrounding" iA
+snippet l( "surrounding" i
 \left( $1 \right) $0
 endsnippet
 
 context "math()"
-snippet l| "surrounding" iA
+snippet l| "surrounding" i
 \left( $1 \right) $0
 endsnippet
 
