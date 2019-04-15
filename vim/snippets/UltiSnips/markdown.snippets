@@ -71,12 +71,12 @@ snippet bm "matrix in [ ]" i
 endsnippet
 
 pre_expand "import os; os.system('fcitx-remote -c')"
-snippet im "inline math formula" iA 
+snippet im "inline math formula" A 
 $$${1:${VISUAL}}$$ $0
 endsnippet
 
 pre_expand "import os; os.system('fcitx-remote -c')"
-snippet lm "interline formula" iA 
+snippet lm "interline formula" A 
 $$
 ${1:${VISUAL}}
 $$ $0
@@ -137,8 +137,14 @@ endsnippet
 #  Math in Math Environment  #
 ##############################
 
+priority 10
 snippet \| "norm" iA
 \|${1:${VISUAL}}\|$0
+endsnippet
+
+priority 100
+snippet l\| "norm" iA
+\left\|${1:${VISUAL}}\right\|$0
 endsnippet
 
 snippet dA "delta A" iA
@@ -176,12 +182,12 @@ snippet '([A-Za-z])T' "auto subscript" wrA
 endsnippet
 
 priority 10
-snippet "bar" "bar" ri
+snippet "b" "bar" ri
 \overline{$1}$0
 endsnippet
 
 priority 10
-snippet "hat" "hat" ri
+snippet "h" "hat" ri
 \hat{$1}$0
 endsnippet
 
@@ -206,28 +212,17 @@ snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
 endsnippet
 
 snippet // "Fraction" iA
-\\frac{ $1 }{ $2 }$0
+\\frac{$1}{$2}$0
 endsnippet
 
-snippet '([A-Za-z])(\d)' "auto subscript" wrA
-`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+snippet _ "auto subscript" wA
+_{$1}$0
 endsnippet
 
-snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
-`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}$0
+snippet ^ "auto subscript" wA
+^{$1}$0
 endsnippet
 
-snippet '_([a-zA-Z0-9])' "auto subscript" wrA
-_`!p snip.rv = match.group(1)`
-endsnippet
-
-snippet '_([a-zA-Z0-9,]{2})' "auto subscript2" wrA
-_{`!p snip.rv = match.group(1)`}$0
-endsnippet
-
-snippet '_([a-zA-Z0-9,]{3})' "auto subscript2" wrA
-_{`!p snip.rv = match.group(1)`$1}$0
-endsnippet
 
 
 
