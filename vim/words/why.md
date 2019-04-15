@@ -1,4 +1,5 @@
-"weihuayi@xtu.edu.cn"
+weihuayi@xtu.edu.cn
 huayiwei1984@gmail.com
 whymath@gmail.com
+wei.huayi@icloud.com
 

@@ -11,6 +11,7 @@ cd ${src_dir}
 ln -s ${src_dir}/vimrc ~/.vimrc
 ln -s ${src_dir}/vim ~/.vim
 ln -s ${src_dir}/gvimrc ~/.gvimrc
+ln -s ${src_dir}/latexmkrc ~/.latexmkrc
 
 vim +PluginInstall +qall
 
