@@ -72,7 +72,7 @@ endsnippet
 
 pre_expand "import os; os.system('fcitx-remote -c')"
 snippet im "inline math formula" iA 
-$$ ${1:${VISUAL}} $$ $0
+$$${1:${VISUAL}}$$ $0
 endsnippet
 
 pre_expand "import os; os.system('fcitx-remote -c')"
@@ -138,7 +138,7 @@ endsnippet
 ##############################
 
 snippet \| "norm" iA
-\| ${1:${VISUAL}} \|$0
+\|${1:${VISUAL}}\|$0
 endsnippet
 
 snippet dA "delta A" iA
@@ -164,7 +164,7 @@ snippet for "for loop"
 endsnippet
 
 snippet txt "text env" 
-\text{ $1 } $0
+\text{ $1 }$0
 endsnippet
 
 snippet '([A-Za-z])I' "auto subscript" wrA
@@ -176,23 +176,13 @@ snippet '([A-Za-z])T' "auto subscript" wrA
 endsnippet
 
 priority 10
-snippet "bar" "bar" riA
+snippet "bar" "bar" ri
 \overline{$1}$0
 endsnippet
 
-priority 100
-snippet "([a-zA-Z])bar" "bar" riA
-\overline{`!p snip.rv=match.group(1)`}
-endsnippet
-
 priority 10
-snippet "hat" "hat" riA
+snippet "hat" "hat" ri
 \hat{$1}$0
-endsnippet
-
-priority 100
-snippet "([a-zA-Z])hat" "hat" riA
-\hat{`!p snip.rv=match.group(1)`}
 endsnippet
 
 snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
@@ -200,15 +190,15 @@ snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
 endsnippet
 
 snippet l{ "surrounding" 
-\left\{ $1 \right\} $0
+\left\{$1\right\} $0
 endsnippet
 
 snippet l[ "surrounding" 
-\left[ $1 \right] $0
+\left[$1\right] $0
 endsnippet
 
-snippet l( "surrounding" wA
-\left( $1 \right) $0
+snippet l( "surrounding" 
+\left($1\right) $0
 endsnippet
 
 snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
@@ -224,7 +214,7 @@ snippet '([A-Za-z])(\d)' "auto subscript" wrA
 endsnippet
 
 snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
-`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}$0
 endsnippet
 
 snippet '_([a-zA-Z0-9])' "auto subscript" wrA
@@ -232,7 +222,7 @@ _`!p snip.rv = match.group(1)`
 endsnippet
 
 snippet '_([a-zA-Z0-9,]{2})' "auto subscript2" wrA
-_{`!p snip.rv = match.group(1)`}
+_{`!p snip.rv = match.group(1)`}$0
 endsnippet
 
 snippet '_([a-zA-Z0-9,]{3})' "auto subscript2" wrA

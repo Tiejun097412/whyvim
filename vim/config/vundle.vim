@@ -14,7 +14,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 " Trigger configuration.
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/snippets/UltiSnips', $HOME.'/.vim/bundle/vim-snippets/UltiSnips']
