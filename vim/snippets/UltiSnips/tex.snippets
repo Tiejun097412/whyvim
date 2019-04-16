@@ -32,6 +32,41 @@ snippet "b(egin)?" "begin{} / end{}" br
 \end{$1}
 endsnippet
 
+snippet ctex "Chinese document"
+% !Mode:: "TeX:UTF-8"
+\documentclass{${1:book}}
+\input{../../template/en_preamble.tex}
+\input{../../template/xecjk_preamble.tex}
+
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+
+\usepackage{xpinyin}
+\setpinyin{为}{wei2}
+
+\begin{document}
+\title{${2:title}}
+\author{魏华祎}
+\date{\chntoday}
+\maketitle
+$3
+\end{document}
+endsnippet
+
+snippet tex "Chinese document"
+% !Mode:: "TeX:UTF-8"
+\documentclass{${1:book}}
+\input{../../template/en_preamble.tex}
+
+\begin{document}
+\title{${2:title}}
+\author{魏华祎}
+\date{\chntoday}
+\maketitle
+$3
+\end{document}
+endsnippet
+
 ###################################
 #  Generate the math environment  #
 ###################################
@@ -79,7 +114,7 @@ endsnippet
 
 context "math()"
 snippet \| "norm" A
-\| ${1:${VISUAL}} \|$0
+\|${1:${VISUAL}}\|$0
 endsnippet
 
 priority 10
@@ -113,7 +148,7 @@ endsnippet
 
 context "math()"
 snippet l{ "surrounding" i
-\left\{ $1 \right\} $0
+\left\{$1\right\} $0
 endsnippet
 
 context "math()"
@@ -123,12 +158,12 @@ endsnippet
 
 context "math()"
 snippet l( "surrounding" i
-\left( $1 \right) $0
+\left($1\right) $0
 endsnippet
 
 context "math()"
 snippet l| "surrounding" i
-\left( $1 \right) $0
+\left($1\right) $0
 endsnippet
 
 context "math()"
