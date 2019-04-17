@@ -116,6 +116,7 @@ set complete-=i
 set dict+=~/.vim/words/cmake.md
 set dict+=~/.vim/words/why.md
 set dict+=~/.vim/words/moab.md
+set dict+=~/.vim/words/fealpy.md
 
 set encoding=utf-8
 set fileencodings=utf-8,GBK 
