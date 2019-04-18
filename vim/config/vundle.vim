@@ -27,6 +27,17 @@ let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
 
+" 一键设置断点
+Plugin 'sillybun/setbreakpoints_python'
+autocmd FileType python nnoremap <F12> :call ToggleBreakPoint()<Cr>
+
+" 代码自动补全 
+Plugin 'Valloric/YouCompleteMe'
+
+" 自动更正上一行的代码格式
+Plugin 'sillybun/autoformatpythonstatement'
+autocmd FileType python let g:autoformatpython_enabled = 1
+
 " 语法检查插件
 "
 Plugin 'vim-syntastic/syntastic'
@@ -104,7 +115,7 @@ set ruler
 set showcmd
 set number
 set nrformats=
-set textwidth=80
+set textwidth=79
 set formatoptions+=mB
 set linespace=6
 
@@ -142,3 +153,20 @@ imap <F3> <C-R>=strftime("%Y.%m.%d")<CR>
 nmap <F4> i<C-R>=strftime("%H:%M:%S")<CR><Esc>
 imap <F4> <C-R>=strftime("%H:%M:%S")<CR>
 
+" Change the window move keys 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" python 
+let python_highlight_all=1
+au Filetype python set tabstop=4
+au Filetype python set softtabstop=4
+au Filetype python set shiftwidth=4
+au Filetype python set textwidth=79
+au Filetype python set expandtab
+au Filetype python set autoindent
+au Filetype python set fileformat=unix
+autocmd Filetype python set foldmethod=indent
+autocmd Filetype python set foldlevel=99

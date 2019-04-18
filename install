@@ -5,6 +5,7 @@ cd
 rm -f .vimrc
 rm -fr .vim
 rm -f .gvimrc
+rm -r .latexmkrc
 
 # 创建符号链接
 cd ${src_dir}
