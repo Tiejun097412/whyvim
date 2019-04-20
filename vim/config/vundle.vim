@@ -33,6 +33,10 @@ autocmd FileType python nnoremap <F12> :call ToggleBreakPoint()<Cr>
 
 " 代码自动补全 
 Plugin 'Valloric/YouCompleteMe'
+let g:ycm_python_binary_path = '/usr/bin/python3'
+let g:ycm_server_python_interpreter='/usr/bin/python3'
+" Shutdown YCM with semantic support for C-family languages through experimental clangd:
+" let g:ycm_use_clangd = 0 
 
 " 自动更正上一行的代码格式
 Plugin 'sillybun/autoformatpythonstatement'

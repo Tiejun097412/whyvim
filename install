@@ -16,3 +16,19 @@ ln -s ${src_dir}/latexmkrc ~/.latexmkrc
 
 vim +PluginInstall +qall
 
+cd ${src_dir}/vim/bundle/YouCompleteMe
+git submodule update --init --recursive
+
+# fix the problem 
+# CMake Error: The source directory
+# "${src_dir}/vim/bundle/YouCompleteMe/third_party/ycmd/third_party/cregex"
+# does not appear to contain CMakeLists.txt.
+
+cd ${src_dir}/vim/bundle/YouCompleteMe/third_party/ycmd/third_party 
+rm -fr cregex
+git submodule update --init --recursive
+
+# compile the YouCompleteMe
+cd ${src_dir}/vim/bundle/YouCompleteMe
+python3 ./install.py --clang-completer --clangd-completer
+
