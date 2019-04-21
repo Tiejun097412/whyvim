@@ -35,8 +35,8 @@ autocmd FileType python nnoremap <F12> :call ToggleBreakPoint()<Cr>
 Plugin 'Valloric/YouCompleteMe'
 
 " 自动更正上一行的代码格式
-Plugin 'sillybun/autoformatpythonstatement'
-autocmd FileType python let g:autoformatpython_enabled = 1
+" Plugin 'sillybun/autoformatpythonstatement'
+" autocmd FileType python let g:autoformatpython_enabled = 1
 
 " 语法检查插件
 "
@@ -154,10 +154,10 @@ nmap <F4> i<C-R>=strftime("%H:%M:%S")<CR><Esc>
 imap <F4> <C-R>=strftime("%H:%M:%S")<CR>
 
 " Change the window move keys 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
 
 " python 
 let python_highlight_all=1
