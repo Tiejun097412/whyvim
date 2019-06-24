@@ -147,7 +147,7 @@ snippet l\| "norm" iA
 \left\|${1:${VISUAL}}\right\|$0
 endsnippet
 
-snippet dA "delta A" iA
+snippet dA "delta A" i
 \delta A
 endsnippet
 
@@ -155,7 +155,7 @@ snippet db "delta b" iA
 \delta b
 endsnippet
 
-snippet dx "delta x" A 
+snippet dx "delta x" i 
 \delta x
 endsnippet
 
@@ -173,11 +173,11 @@ snippet txt "text env"
 \text{ $1 }$0
 endsnippet
 
-snippet '([A-Za-z])I' "auto subscript" wrA
+snippet '([A-Za-z])I' "subscript" wr
 `!p snip.rv = match.group(1)`^{-1}
 endsnippet
 
-snippet '([A-Za-z])T' "auto subscript" wrA
+snippet '([A-Za-z])T' "subscript" wr
 `!p snip.rv = match.group(1)`^T
 endsnippet
 
@@ -211,15 +211,15 @@ snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
 \\frac{`!p snip.rv = match.group(1)`}{$1}$0
 endsnippet
 
-snippet // "Fraction" iA
+snippet // "Fraction" i
 \\frac{$1}{$2}$0
 endsnippet
 
-snippet _ "auto subscript" wA
+snippet _ "auto subscript" w
 _{$1}$0
 endsnippet
 
-snippet ^ "auto subscript" wA
+snippet ^ "auto subscript" w
 ^{$1}$0
 endsnippet
 
