@@ -24,8 +24,8 @@ Plugin 'lervag/vimtex'
 let g:tex_flavor='xelatex'
 let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
+"set conceallevel=1
+"let g:tex_conceal='abdmg'
 
 " 一键设置断点
 Plugin 'sillybun/setbreakpoints_python'
