@@ -35,6 +35,8 @@ autocmd FileType python nnoremap <F12> :call ToggleBreakPoint()<Cr>
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ycm_server_python_interpreter='/usr/bin/python3'
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 " Shutdown YCM with semantic support for C-family languages through experimental clangd:
 " let g:ycm_use_clangd = 0 
 
